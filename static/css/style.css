@@ -19,26 +19,7 @@
   fit-position: top: 0px;
 }
 
-
-
-
-
-
-ul>li>a:hover{
-display:block !important;
-float:right !important;
-}
-ul>li>a{
-display:none !important;
-}
-.glyphicon-edit{
-padding-left:7%;
-}
-
-ul>li:hover {
-display:block !important;
-float:right !important;
-}
-ul>li{
-display:none !important;
+#temperature_plot {
+   top: 2px;
+   left: 2px;
 }
