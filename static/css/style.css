@@ -1,10 +1,95 @@
-.navbar-text {
-   position: absolute;
-   width: 100%;
-   left: 10;
-   text-align: left;
-   margin:0 auto;
+* {
+  margin: 0;
+  padding: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+/* Header */
+header {
+  position: relative;
+  height: 60px;
+  background-color: #444;
+  display: flex;
+}
+
+.site-title {
+  border-right: 2px solid #eee;
+  margin: 0 20px;
+  line-height: 60px;
+  vertical-align: middle;
+  width: 250px;
+  color: #f4f8f8;
+  text-align: center;
+  font-size: medium;
+  text-transform: uppercase;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 20px;
+  width: calc(100% - 100px);
+}
+
+.header-nav {
+  margin: 0 20px;
+  width: calc(100% - 100px);
+}
+
+.header-nav a {
+  display: inline-block;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  position: relative;
+  color: white;
+}
+
+.header-nav a:hover {
+  color: #32d3d3;
+}
+
+.header-nav a form {
+  display: none;
+}
+
+.header-nav a:hover form {
+  display: block;
+  position: absolute;
+}
+
+.header-nav a:hover form {
+  display: block;
+  position: absolute;
+}
+
+.header-nav--last {
+  margin-left: auto;
+}
+
+/* Main */
+main {
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+/* Info Start Options */
+.start > * {
+  display: inline-block;
+}
+
+/* ... */
 
 .modal {
   top: 50%;

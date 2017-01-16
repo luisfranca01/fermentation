@@ -9,120 +9,116 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand">Fermentation APP</a>
+  <header>
+    <span class="site-title">Fermentation App</span>
+    <nav class="header-nav">
+      <a href="#" data-toggle="modal" data-target="#myModal" data-backdrop="false" data-dismiss="modal">Create Run</a>
+      <a href="#">Databases
+        <form action="{{ url_for('deftablename') }}" method="post" role="form">
+          <select onchange="this.form.submit()" class="dropdown-toggle" data-toggle="dropdown" name='drop' class="selectpicker show-menu-arrow form-control" type="submit">
+            {% for name in dbFiles %}
+              <option value="{{ name }}" <span class="selection">{{ name }} </option>
+            {% endfor %}
+          </select>
+        </form>
+      <a class="header-nav--last"href="/shutdown">Shutdown Rasp</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 id="heading"></h2>
+
+    <div class="info-start">
+      <!-- START -->
+      <div class="start">
+        <button  type="button" class="btn btn-success btn-lg" id="runButton">Start</button>
+        <form method="post">
+          <div class="popover-markup"> <a href="#" class="trigger">Refresh 10min</a>
+            <div class="head hide">Refresh Time (min)</div>
+            <div class="content hide">
+              <div class="form-group" >
+                <input type="text" id="popoverInput" class="form-control" placeholder="10">
+              </div>
+              <button type="submit" id="popoverSubmit" class="btn btn-default btn-block">Submit</button>
+            </div>
+            <div class="footer hide">test</div>
+          </div>
+        </form>
       </div>
-      <div>
-        <ul class="nav navbar-nav">
-          <li><a href="#" data-toggle="modal" data-target="#myModal" data-backdrop="false" data-dismiss="modal">Create Run</a></li>
+      <!-- FIM START -->
 
-          <li class="dropdown">
-            <li>
-              <form action="{{ url_for('deftablename') }}" method="post" role="form">
-                <select onchange="this.form.submit()" class="dropdown-toggle" data-toggle="dropdown" name='drop' class="selectpicker show-menu-arrow form-control" type="submit">
-                  {% for name in dbFiles %}
-                  <option value="{{ name }}" <span class="selection">{{ name }} </option>
-                    {% endfor %}
-                  </select>
-                </form>
-              </li>
-            </li>
-          </div>
-
-          <div>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="/shutdown">Shutdown Rasp</a></li>
-            </ul>
-          </div>
-
-        </div>
-      </nav>
-      <div class="container">
-        <div class="row">
-          <h2 id="heading"></h2>
-
-          <button href="#demo" class="btn btn-info" data-toggle="collapse">Info</button>
-          <div id="demo" class="collapse">
-            <div class="form-group">
-              <form action="{{ url_for('submittext') }}" method="post" role="form">
-                <textarea name='text' type = "text" class="form-control" rows="4">{{infotextarea}}</textarea>
-                <input type="submit"  name='text' type = "text" class="btn btn-info" value="Save"></input>
-              </form>
-            </div>
-          </div>
-
-        </div>
-
-
-        <br><br>
-        <div class="row">
-          <button  type="button" class="btn btn-success btn-lg" id="runButton">Start</button>
-          <form method="post">
-
-
-            <div class="popover-markup"> <a href="#" class="trigger">Refresh 10min</a>
-              <div class="head hide">Refresh Time (min)</div>
-              <div class="content hide">
-                <div class="form-group" >
-                  <input type="text" id="popoverInput" class="form-control" placeholder="10">
-                </div>
-                <button type="submit" id="popoverSubmit" class="btn btn-default btn-block">Submit</button>
-              </div>
-              <div class="footer hide">test</div>
-            </div>
-          </form>
-          <div class="panel panel-info">
-            <div class="panel-heading"></div>
-            <div class="panel-body">
-              <h5>Date period:</h5>
-              <input type="text" name="daterange"></input>
-              <div class="one column">
-                <form id="range_select" action = "/" method="GET">
-                  <label class="radio-inline"><input type="radio" value="24" id="radio_3" name="range_h">24hrs</label>
-                  <label class="radio-inline"><input type="radio" name="range_h" value="72" id="radio_6" >3dys</label>
-                  <label class="radio-inline"><input type="radio" name="range_h" value="144" id="radio_12">6dys</label>
-                  <label class="radio-inline"><input type="radio" name="range_h" value="7000" id="radio_24">all</label>
-                </form>
-              </div>
-            </div>
-            <div id="temperature_plot" style="max-width: 600px; margin-left: 2; height: 400px; margin: 0 auto"></div>
-
-          </div>
-
-          <!-- MODAL CREATE RUN -->
-          <div class="modal" id="myModal">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4 class="modal-title">New Run</h4>
-          </div>
-          <div class="modal-body" rows="1">
-            <form method='POST' role="form" action="/createRun" id="form1">
-              <div class="form-group">
-                <label for="message-text" class="form-control-label">Name:</label>
-                <textarea class="form-control" id= "newName" name="runName"></textarea>
-              </div>
+      <!-- INFO -->
+      <div class="info">
+        <button href="#demo" class="btn btn-info" data-toggle="collapse">Info</button>
+        <div id="demo" class="collapse">
+          <div class="form-group">
+            <form action="{{ url_for('submittext') }}" method="post" role="form">
+              <textarea name='text' type = "text" class="form-control" rows="4">{{infotextarea}}</textarea>
+              <input type="submit"  name='text' type = "text" class="btn btn-info" value="Save"></input>
             </form>
-            <button type="submit" class="btn btn-primary" id="createButton" form="form1">Create</button>
+          </div>
+        </div>
+      </div>
+      <!-- FIM INFO -->
+    </div>
+
+    <!-- GRAPH FRAME -->
+    <div>
+      <div class="panel panel-info">
+        <div class="panel-heading"></div>
+        <div class="panel-body">
+          <h5>Date period:</h5>
+          <input type="text" name="daterange"></input>
+          <div class="one column">
+            <form id="range_select" action = "/" method="GET">
+              <label class="radio-inline"><input type="radio" value="24" id="radio_3" name="range_h">24hrs</label>
+              <label class="radio-inline"><input type="radio" name="range_h" value="72" id="radio_6" >3dys</label>
+              <label class="radio-inline"><input type="radio" name="range_h" value="144" id="radio_12">6dys</label>
+              <label class="radio-inline"><input type="radio" name="range_h" value="7000" id="radio_24">all</label>
+            </form>
           </div>
         </div>
 
-        <!-- JS -->
-        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-        <script src="https://code.highcharts.com/highcharts.js"></script>
-        <script src="https://code.highcharts.com/modules/exporting.js"></script>
-        <script type="text/javascript" src="static/js/main.js"> </script>
-        <!-- CSS Styles -->
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-        <link rel="stylesheet" href="static/css/style.css">
+      <!-- Graph -->
+      <div id="temperature_plot" style="max-width: 600px; margin-left: 2; height: 400px; margin: 0 auto"></div>
+      <!-- Fim Graph -->
+      </div>
+      <!-- GRAPH FRAME -->
+    </div>
+  </main>
 
-      </body>
-      </html>
+      <!-- MODAL CREATE RUN -->
+      <div class="modal" id="myModal">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">New Run</h4>
+      </div>
+      <div class="modal-body" rows="1">
+        <form method='POST' role="form" action="/createRun" id="form1">
+          <div class="form-group">
+            <label for="message-text" class="form-control-label">Name:</label>
+            <textarea class="form-control" id= "newName" name="runName"></textarea>
+          </div>
+        </form>
+        <button type="submit" class="btn btn-primary" id="createButton" form="form1">Create</button>
+      </div>
+    </div>
+
+<!-- JS -->
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript" src="./static/js/main.js"> </script>
+<!-- CSS Styles -->
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+<link rel="stylesheet" href="static/css/style.css">
+
+</body>
+</html>
