@@ -33,7 +33,8 @@
       <div class="start">
         <button  type="button" class="btn btn-success btn-lg" id="runButton">Start</button>
         <form method="post">
-          <div class="popover-markup"> <a href="#" class="trigger">Refresh 10min</a>
+          <div class="popover-markup">
+            <a href="#" class="start-refresh trigger">Refresh 10min</a>
             <div class="head hide">Refresh Time (min)</div>
             <div class="content hide">
               <div class="form-group" >
@@ -99,7 +100,7 @@
         <form method='POST' role="form" action="/createRun" id="form1">
           <div class="form-group">
             <label for="message-text" class="form-control-label">Name:</label>
-            <textarea class="form-control" id= "newName" name="runName"></textarea>
+            <input class="form-control" id= "newName" name="runName"></input>
           </div>
         </form>
         <button type="submit" class="btn btn-primary" id="createButton" form="form1">Create</button>

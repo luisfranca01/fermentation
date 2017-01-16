@@ -89,6 +89,10 @@ main {
   display: inline-block;
 }
 
+a.start-refresh {
+  color: #333;
+}
+
 /* ... */
 
 .modal {
