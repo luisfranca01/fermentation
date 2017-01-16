@@ -1,0 +1,44 @@
+.navbar-text {
+   position: absolute;
+   width: 100%;
+   left: 10;
+   text-align: left;
+   margin:0 auto;
+}
+
+.modal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 200px;
+  bottom: 0;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:0px;
+  fit-position: top: 0px;
+}
+
+
+
+
+
+
+ul>li>a:hover{
+display:block !important;
+float:right !important;
+}
+ul>li>a{
+display:none !important;
+}
+.glyphicon-edit{
+padding-left:7%;
+}
+
+ul>li:hover {
+display:block !important;
+float:right !important;
+}
+ul>li{
+display:none !important;
+}
