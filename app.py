@@ -22,7 +22,7 @@ def render_indexHTML():
     info = getinfodb()
     return render_template('index.html',
                            dbFiles = dbFiles,
-                           tablename=tablename,
+                           tablename = tablename,
                            infotextarea = info)
 
 

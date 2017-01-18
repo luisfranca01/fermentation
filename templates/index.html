@@ -34,7 +34,7 @@
         <button  type="button" class="btn btn-success btn-lg" id="runButton">Start</button>
         <form method="post">
           <div class="popover-markup">
-            <a href="#" class="start-refresh trigger">Refresh 10min</a>
+            <a href="#" class="start-refresh trigger">(Refresh 10min)</a>
             <div class="head hide">Refresh Time (min)</div>
             <div class="content hide">
               <div class="form-group" >
@@ -108,18 +108,31 @@
     </div>
 
 <!-- JS -->
-<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/moment.min.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/daterangepicker.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/highcharts.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/exporting.js') }}"></script>
+<!-- CSS Styles -->
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"></link>
+<link href="{{ url_for('static', filename='css/bootstrap-combined.min.css') }}" rel="stylesheet"></link>
+<link href="{{ url_for('static', filename='css/daterangepicker.css') }}" rel="stylesheet"></link>
+
+<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"></link>
+<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<!-- <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script type="text/javascript" src="./static/js/main.js"> </script>
-<!-- CSS Styles -->
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-<link rel="stylesheet" href="static/css/style.css">
+<script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet"></link>
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"></link>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"></link> -->
+
 
 </body>
 </html>

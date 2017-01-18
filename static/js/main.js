@@ -1,4 +1,4 @@
-$('.popover-markup>.trigger').popover({
+$('.start-refresh.trigger').popover({
     html: true,
     title: 'Get value',
     content: function () {
@@ -9,7 +9,8 @@ $('.popover-markup>.trigger').popover({
 $(document).on("click", "#popoverSubmit", function () {
     var inputval = $(".popover #popoverInput").val();
     $('.popover-markup').popover('hide');
-    if (inputval === parseInt(data, 10)){
+    if (inputval === parseInt(inputval, 10)){
+      document.getElementsByID('popoverInput')[0].placeholder=inputval+'min';
     return true;
   }
 });
